@@ -1,0 +1,11 @@
+# 定义全局变量
+variables:
+  # -B, --batch-mode 在非交互（批处理）模式下运行(该模式下,当Maven需要输入时,它不会停下来接受用户的输入,而是使用合理的默认值)
+  # -e显示详细错误信息
+  PROJECT_ROOT_PATH: /mnt/data/wwwroot
+  GIT_CLEAN_FLAGS: none
+  GIT_CLONE_PATH: /home/gitlab-runner/builds/BxzkrpmfX/0/front/$CI_COMMIT_BRANCH/$CI_PROJECT_NAME
+
+include:
+  - local: 'packages/threeModel-editor/.gitlab-ci.yml'
+

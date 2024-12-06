@@ -1,0 +1,160 @@
+.app__ {
+    &wrap {
+        width: 100%;
+        height: 100%;
+        min-width: 1200px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: var(--base-bg-color);
+        & :deep(.arco-layout-sider-children),
+        & :deep(.arco-layout-content) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 16px;
+            font-stretch: condensed;
+            text-align: center;
+        }
+
+        & :deep(.arco-layout-sider) {
+            background-color: var(--base-bg-color);
+            border-radius: var(--border-radius-8);
+            height: 100%;
+            box-shadow: none;
+        }
+
+        & :deep(.arco-layout-content) {
+            height: 100%;
+            background-color: var(--base-bg-color);
+        }
+        &-blur{
+            filter: blur(4px);
+        }
+    }
+    &sider{
+        &col{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &row{
+            background-color: #fff;
+            color: var(--base-font-color);
+            width: 100%;
+            padding: var(--base-padding-10);
+            border-radius: var(--border-radius-8);
+        }
+    }
+    &model,
+    &render{
+        flex: 2;
+    }
+    &scene{
+        margin-top: var(--base-margin-10);
+        flex: 4;
+    }
+    &model{
+        margin-top: var(--base-margin-20);
+    }
+    &three.arco-layout-content{
+        margin: 0 var(--base-margin-20);
+        overflow-x: unset;
+        position: relative;
+    }
+    &scenerender{
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        height: 100%;
+    }
+    &three{
+        &header{
+            overflow: hidden;
+            transition: height .3s ease;
+            height: var(--base-header-height);
+        }
+        &container{
+            position: relative;
+            flex: 12;
+            padding: 0;
+            margin-top: var(--base-margin-20);
+        }
+    }
+    &collapsed{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0;
+        &header{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 15px;
+        }
+        &-left{
+            left: -18px;
+        }
+        &-right{
+            right: -18px;
+        }
+        &-center{
+            top: -18px;
+        }
+        &item{
+            transition: all .3s ease;
+            &-slide{
+                flex: 0;
+                height:0;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin-top: 0px;
+            }
+        }
+        &model{
+            height: 15px;
+            width: 60px;
+            margin-top: var(--base-margin-10);
+        }
+    }
+    &type{
+        flex: 1;
+        max-height: var(--base-header-height);
+        min-height: var(--base-header-height);
+    }
+    &panel{
+        margin-top: var(--base-margin-20);
+        flex: 35;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    &content{
+        width: 100%;
+        height: 100%;
+        padding: var(--base-padding-10);
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+        box-sizing: border-box;
+    }
+    &sidercol{
+        overflow: hidden;
+    }
+    &maincontent,
+    &sidercol,
+    &three{
+        max-height: var(--max-content-height);
+    }
+    &scene{
+        overflow: hidden;
+    }
+    &render{
+        overflow: hidden;
+    }
+    &mask{
+        width: 100vw;
+        height: 100vh;
+    }
+}

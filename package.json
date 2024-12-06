@@ -1,0 +1,71 @@
+{
+  "name": "model-threejs",
+  "version": "1.0.0",
+  "description": "JavaScript 3D library for Three",
+  "main": "index.js",
+  "scripts": {
+    "build:core": "pnpm --filter=@model/three-core run build:prod",
+    "release:core": "pnpm i --filter=@model/three-core && pnpm build:core && pnpm changeset && pnpm version-packages && pnpm release:only",
+    "build:render-v2": "pnpm --filter=@model/three-render-v2 run build:prod",
+    "release:render-v2": "pnpm i --filter=@model/three-render-v2 && pnpm build:render-v2 && pnpm changeset && pnpm version-packages && pnpm release:only",
+    "build:render-v3": "pnpm --filter=@model/three-render-v3 run build:prod",
+    "release:render-v3": "pnpm i --filter=@model/three-render-v3 && pnpm build:render-v3 && pnpm changeset && pnpm version-packages && pnpm release:only",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "pnpm i && pnpm build:all && pnpm changeset && pnpm version-packages && pnpm release:only",
+    "release:only": "changeset publish -r && pnpm git:push",
+    "git:push": "node ./scripts/gitPush.js",
+    "changeset": "changeset",
+    "clear": "node scripts/rmrf.js",
+    "commit": "cz",
+    "postinstall": "husky install",
+    "preinstall": "npx only-allow pnpm",
+    "version-packages": "changeset version",
+    "lint": "eslint . --ext .vue,.js,.jsx --fix",
+    "build:editor:prod": "pnpm --filter=@model/three-editor run build:prod",
+    "build:editor:dev": "pnpm --filter=@model/three-editor run build:dev",
+    "build:editor:test": "pnpm --filter=@model/three-editor run build:test",
+    "install:packages": "node scripts/installDependenciesInCI.js",
+    "prepare": "husky install",
+    "checkout:development": "node scripts/checkout.js --branch=development",
+    "merge:dev": "node scripts/merge.js --origin=release/development --local=development",
+    "merge:test": "node scripts/merge.js --origin=release/test --local=development",
+    "merge:prod": "node scripts/merge.js --origin=master --local=development",
+    "merge:all": "pnpm merge:prod & pnpm merge:test & pnpm merge:dev & pnpm checkout:development"
+  },
+  "keywords": [
+    "model-threejs",
+    "three",
+    "threejs"
+  ],
+  "author": "chovi",
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "license": "ISC",
+  "private": true,
+  "lint-staged": {
+    "*.{js,vue,jsx, md}": [
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.23.10",
+    "@changesets/cli": "^2.27.1",
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.2",
+    "@types/node": "^20.11.20",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "chalk": "4.1.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-vue": "^9.22.0",
+    "husky": "^8.0.0",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "vite": "^5.1.4",
+    "vite-plugin-eslint": "^1.8.1"
+  }
+}

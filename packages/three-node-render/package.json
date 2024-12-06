@@ -1,0 +1,22 @@
+{
+  "name": "@model/three-node-render-v3",
+  "version": "0.0.0",
+  "description": "node three 3d vue",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "render": "node ./main.js",
+    "renderPuppeteer": "node ./index.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "author": "chovi",
+  "dependencies": {
+    "@model/three-render-v2": "workspace:^",
+    "three": "^0.171.0",
+    "mock-browser": "^0.92.14",
+    "node-canvas-webgl": "^0.3.0",
+    "puppeteer": "^23.10.1"
+  }
+}

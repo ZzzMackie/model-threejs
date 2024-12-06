@@ -1,0 +1,25 @@
+.rendersetting__{
+    &wrap{
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        max-height: calc(100% - 30px);
+        min-height: calc(100% - 30px);
+    }
+    &setting{
+        margin-bottom: var(--base-margin-20);
+    }
+    &antialias{
+        margin-right: 20px;
+    }
+    &text{
+        text-align: left;
+    }
+    &col{
+        display: flex;
+        align-items: center;
+    }
+    &toneMapping{
+        margin-top: var(--base-margin-20);
+    }
+}

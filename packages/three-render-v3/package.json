@@ -1,0 +1,28 @@
+{
+  "name": "@model/three-render-v3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/three-render-v3.umd.cjs",
+  "module": "./dist/three-render-v3.js",
+  "exports": {
+    ".": {
+      "import": "./dist/three-render-v3.js",
+      "require": "./dist/three-render-v3.umd.cjs"
+    }
+  },
+  "author": "chovi",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.19"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.1.4"
+  }
+}

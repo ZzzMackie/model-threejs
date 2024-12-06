@@ -1,0 +1,43 @@
+.scenetoggle__{
+    &wrap{
+        overflow-y: auto;
+        max-height: calc(100% - 100px);
+        min-height: calc(100% - 100px);
+    }
+    &scene{
+        padding: var(--base-padding-10);
+        border-radius: var(--border-radius-8);
+        background-color: var(--base-gray-color);
+        margin-bottom: var(--base-margin-10);
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        &-active{
+            color: #fff;
+            background-color: var(--base-color);
+        }
+    }
+    &add{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &category,
+        &scene{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #fff;
+            border-radius: var(--border-radius-8);
+            padding: var(--base-padding-10);
+            background-color: var(--base-dark-color);
+            text-align: center;
+        }
+    }
+    &text{
+        margin-right: var(--base-margin-10);
+    }
+    &text{
+        margin-right: var(--base-margin-10);
+    }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@model/three-render-v2",
+  "version": "0.5.7",
+  "description": "",
+  "main": "dist/three-render-v2.umd.min.js",
+  "module": "./src/main.js",
+  "scripts": {
+    "build:prod": "vue-cli-service build --target lib --name three-render-v2 src/main.js --mode  production",
+    "dev": "vue-cli-service serve src/index.js --mode  development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "chovi",
+  "license": "ISC",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "devDependencies": {
+    "element-ui": "^2.15.14",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "axios": "^1.7.2",
+    "node-polyfill-webpack-plugin": "^3.0.0",
+    "terser-webpack-plugin": "4.2.3",
+    "vue": "2.7.16",
+    "webpack": "5.88.2"
+  },
+  "dependencies": {
+    "@model/three-core": "workspace:^"
+  }
+}

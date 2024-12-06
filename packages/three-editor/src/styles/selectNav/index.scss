@@ -1,0 +1,15 @@
+.selectnav__{
+    &wrap{
+        width: 100%;
+        height: 100%;
+        color: var(--base-font-color);
+    }
+    &col{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &-active{
+            color: var(--base-color);
+        }
+    }
+}

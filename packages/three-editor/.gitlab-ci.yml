@@ -1,0 +1,130 @@
+# 定义全局变量
+variables:
+  # -B, --batch-mode 在非交互（批处理）模式下运行(该模式下,当Maven需要输入时,它不会停下来接受用户的输入,而是使用合理的默认值)
+  # -e显示详细错误信息
+  PROJECT_ROOT_PATH: /mnt/data/wwwroot
+  GIT_CLEAN_FLAGS: none
+  GIT_CLONE_PATH: /home/gitlab-runner/builds/BxzkrpmfX/0/front/$CI_COMMIT_BRANCH/$CI_PROJECT_NAME
+  PROJECT_TARGETS: threeModel-editor
+
+cache:
+  paths:
+    - node_modules
+  when: on_success
+
+before_script:
+  - sh /home/gitlab-runner/npm_login
+  - cd /home/gitlab-runner/builds/BxzkrpmfX/0/front/$CI_COMMIT_BRANCH/$CI_PROJECT_NAME
+
+# 定义pipeline的阶段, stage的执行顺序为配置文件中指定的顺序
+stages:
+  - build # 编译阶段
+  - deploy # 部署阶段
+
+# 开发环境
+threeModel-editor-build-dev:
+  tags:
+    - build
+  stage: build
+  script:
+    - pnpm install:packages ${CI_COMMIT_BEFORE_SHA} && pnpm run build:editor:dev
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release\/development/
+      changes:
+        paths:
+          - packages/${PROJECT_TARGETS}/**/**/**/**/**/*
+          - packages/threeModel-core/**/**/**/**/**/*
+      when: always
+  after_script:
+    - sh /data/scripts/deploy_notice.sh "build"
+
+# 测试环境
+threeModel-editor-build-test:
+  tags:
+    - build
+  stage: build
+  script:
+    - pnpm install:packages ${CI_COMMIT_BEFORE_SHA} && pnpm run build:editor:test
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release\/test/
+      changes:
+        paths:
+          - packages/${PROJECT_TARGETS}/**/**/**/**/**/*
+          - packages/threeModel-core/**/**/**/**/**/*
+      when: always
+  after_script:
+    - sh /data/scripts/deploy_notice.sh "build"
+
+# 生产环境
+threeModel-editor-build-prod:
+  tags:
+    - build
+  stage: build
+  script:
+    - pnpm install:packages ${CI_COMMIT_BEFORE_SHA} && pnpm run build:editor:prod
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^master/
+      changes:
+        paths:
+          - packages/${PROJECT_TARGETS}/**/**/**/**/**/*
+          - packages/threeModel-core/**/**/**/**/**/*
+      when: always
+  after_script:
+    - sh /data/scripts/deploy_notice.sh "build"
+
+# 部署代码
+threeModel-editor-deploy-dev:
+  tags:
+    - deploy
+  stage: deploy
+  script:
+    - for host in ${FRONT_DEV_HOST[@]};do echo ${host} && ssh root@${host} "test -d ${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}/${PROJECT_TARGETS}/ || mkdir -p ${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}/${PROJECT_TARGETS}/";done
+    - for host in ${FRONT_DEV_HOST[@]};do rsync -avruz --delete --progress packages/${PROJECT_TARGETS}/dist/ root@${host}:${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}/${PROJECT_TARGETS}/;done
+    - for host in ${FRONT_DEV_HOST[@]};do ssh root@${host} "cp -rfa ${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}{,_bak_$(date +'%Y%m%d%H%M%S')} && sh /data/scripts/clean_history_project_tag.sh ${PROJECT_ROOT_PATH} ${CI_PROJECT_NAME}";done
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release\/development/
+      changes:
+        paths:
+          - packages/${PROJECT_TARGETS}/**/**/**/**/**/*
+          - packages/threeModel-core/**/**/**/**/**/*
+      when: on_success
+  after_script:
+    - sh /data/scripts/deploy_notice.sh "deploy"
+
+# 部署代码
+threeModel-editor-deploy-test:
+  tags:
+    - deploy
+  stage: deploy
+  script:
+    - for host in ${FRONT_TEST_HOST[@]};do echo ${host} && ssh root@${host} "test -d ${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}/${PROJECT_TARGETS}/ || mkdir -p ${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}/${PROJECT_TARGETS}/";done
+    - for host in ${FRONT_TEST_HOST[@]};do rsync -avruz --delete --progress packages/${PROJECT_TARGETS}/dist/ root@${host}:${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}/${PROJECT_TARGETS}/;done
+    - for host in ${FRONT_TEST_HOST[@]};do ssh root@${host} "cp -rfa ${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}{,_bak_$(date +'%Y%m%d%H%M%S')} && sh /data/scripts/clean_history_project_tag.sh ${PROJECT_ROOT_PATH} ${CI_PROJECT_NAME}";done
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release\/test/
+      changes:
+        paths:
+          - packages/${PROJECT_TARGETS}/**/**/**/**/**/*
+          - packages/threeModel-core/**/**/**/**/**/*
+      when: on_success
+  after_script:
+    - sh /data/scripts/deploy_notice.sh "deploy"
+
+# 部署代码
+threeModel-editor-deploy-prod:
+  tags:
+    - deploy
+  stage: deploy
+  script:
+    - for host in ${FRONT_PROD_HOST[@]};do echo ${host} && ssh root@${host} "test -d ${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}/${PROJECT_TARGETS}/ || mkdir -p ${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}/${PROJECT_TARGETS}/";done
+    - for host in ${FRONT_PROD_HOST[@]};do rsync -avruz --delete --progress packages/${PROJECT_TARGETS}/dist/ root@${host}:${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}/${PROJECT_TARGETS}/;done
+    - for host in ${FRONT_PROD_HOST[@]};do ssh root@${host} "cp -rfa ${PROJECT_ROOT_PATH}/${CI_PROJECT_NAME}{,_bak_$(date +'%Y%m%d%H%M%S')} && sh /data/scripts/clean_history_project_tag.sh ${PROJECT_ROOT_PATH} ${CI_PROJECT_NAME}";done
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^master/
+      changes:
+        paths:
+          - packages/${PROJECT_TARGETS}/**/**/**/**/**/*
+          - packages/threeModel-core/**/**/**/**/**/*
+      when: manual
+  after_script:
+    - sh /data/scripts/deploy_notice.sh "deploy"

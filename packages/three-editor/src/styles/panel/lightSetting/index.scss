@@ -1,0 +1,70 @@
+.lightsetting__{
+    &wrap{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    &hdr,
+    &light{
+        background-color: #fff;
+        width: 100%;
+        padding: var(--base-padding-10);
+        border-radius: var(--border-radius-8);
+    }
+    &hdr.arco-row{
+        flex: 2;
+        margin-bottom: var(--base-margin-20);
+    }
+    &light.arco-row{
+        flex-direction: column;
+        flex: 7;
+        max-height: 650px;
+    }
+    &img{
+        display: flex;
+    }
+    &file{
+        display: flex;
+        border-radius: var(--border-radius-8);
+        padding: var(--base-padding-10);
+        background-color: var(--base-color);
+        margin-bottom: var(--base-margin-10);
+    }
+    &des{
+        font-size: var(--base-font-min-size);
+    }
+    &text{
+        margin-bottom: var(--base-margin-20);
+    }
+    &icon{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    &add{
+        display: flex;
+        max-height: 20px;
+        margin-bottom: var(--base-margin-20);
+        cursor: pointer;
+    }
+    &title{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    &lightparams.arco-col{
+        flex: 1;
+        max-height: calc(100% - 40px);
+    }
+    &collapseitemheader{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        .svg-icon{
+            color: var(--base-gray-dark1);
+
+        }
+    }
+}

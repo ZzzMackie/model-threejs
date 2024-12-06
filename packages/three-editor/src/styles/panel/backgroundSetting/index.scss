@@ -1,0 +1,51 @@
+.backgroundsetting__{
+    &wrap{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        padding: var(--base-padding-10);
+        border-radius: var(--border-radius-8);
+        .arco-color-picker-panel{
+            width: 100%;
+        }
+    }
+    &tag{
+        margin: var(--base-margin-20) 0;
+    }
+    &upload{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-right: 0;
+        height: 330px;
+    }
+    &mask{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &delete,
+    &edit{
+        width: 50px;
+        height: 50px;
+        &:hover{
+            color: var(--base-color);
+        }
+    }
+    &edit{
+        margin-right: var(--base-margin-20);
+    }
+    &des{
+        font-size: var(--base-font-min-size);
+        color: var(--base-gray-dark1);
+    }
+    &radio{
+        width: 50%;
+    }
+    &group{
+        width: 100%;
+    }
+}

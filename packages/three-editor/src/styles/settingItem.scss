@@ -1,0 +1,115 @@
+.settingitem__{
+    &item{
+        padding: var(--base-padding-10);
+        background-color: var(--base-gray-color);
+        margin-bottom: var(--base-margin-10);
+        border-radius: var(--border-radius-8);
+        .arco-input-wrapper{
+            padding: 0 var(--base-padding-10);
+        }
+    }
+    &switch{
+        justify-content: flex-end;
+    }
+    &label{
+        justify-content: flex-start;
+    }
+    &item,
+    &switch,
+    &label,
+    &selectswitch,
+    &comp{
+        display: flex;
+    }
+    &selectswitch{
+        justify-content: flex-end;
+
+    }
+    &label{
+        align-items: center;
+        font-size: var(--base-font-middle-size);
+    }
+    &selectposition{
+        &:not(:last-of-type){
+            margin-right: var(--base-margin-10);
+        }
+    }
+    
+    &img{
+        display: flex;
+        align-items: center;
+        &col{
+            display: flex;
+            align-items: center;
+        }
+    }
+    &file{
+        border-radius: var(--border-radius-8);
+        padding: 0 var(--base-padding-10);
+        background-color: var(--base-color);
+        margin-bottom: var(--base-margin-10);
+    }
+    &des{
+        font-size: var(--base-font-min-size);
+    }
+    &icon{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    
+    &delete{
+        cursor: pointer;
+        &:hover{
+            color: var(--base-color);
+        }
+    }
+    &upload{
+        font-size: var(--base-font-min-size);
+        justify-content: flex-end;
+        &avatar,
+        &img{
+            height: 25px;
+            vertical-align: middle;
+            line-height: 25px;
+            margin: 0;
+            & img{
+              object-fit: contain;  
+            }
+        }
+        &img{
+            min-width: 60px;
+        }
+        &delete{
+            font-size: 16px;
+            justify-content: flex-end;
+        }
+        &delete,
+        &input,
+        &col{
+            display: flex;
+            align-items: center;
+        }
+        &input{
+            margin-left: var(--base-margin-10);
+
+            &y{
+                margin-left: var(--base-margin-10);
+            }
+        }
+        &file{
+            width: 100%;
+            height: auto;
+        }
+        &avatar{
+            .arco-avatar{
+                background-color: transparent;
+            }
+        }
+    }
+    &canvas{
+        border-radius: 50%;
+        // width: 100%;
+        // height: 100%;
+    }
+}

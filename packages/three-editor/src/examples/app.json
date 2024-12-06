@@ -1,0 +1,58 @@
+{
+	"project": {
+		"title": "Scene",
+		"shadows": true,
+		"shadowType": 1,
+		"vr": false,
+		"toneMapping": 4,
+		"toneMappingExposure": 1,
+		"antialias": true,
+		"autoClear": true,
+		"name": "project",
+		"category_id": 0,
+		"category_name": "默认"
+	},
+	"controls": {
+		"maxDistance": 1000,
+		"maxPolarAngle": 3.14,
+		"minDistance": 1,
+		"minPolarAngle": 0,
+		"name": "controls",
+		"category_id": 0,
+		"autoRotate": false, 
+		"autoRotateSpeed": 60, 
+		"rotateSpeed": 0.5, 
+		"enabled": true, 
+		"enablePan": true, 
+		"enableDamping": true ,
+		"category_name": "默认"
+	},
+	"camera": {
+		"object": {
+			"fov": 20,
+			"zoom": 1,
+			"near": 1,
+			"far": 10000,
+			"focus": 10,
+			"aspect": 1,
+			"filmGauge": 35,
+			"filmOffset": 0,
+			"position": {
+				"x": 0,
+				"y": 0,
+				"z": 150
+			}
+		},
+        "screenshot": {
+          "url": "",
+          "width": 600,
+          "height": 600
+        },
+        "screenshotType": "image/png",
+        "orthographicCamera": false,
+        "transparentBackground": false,
+        "name": "camera",
+        "category_id": 0,
+		"category_name": "默认"
+	}
+}

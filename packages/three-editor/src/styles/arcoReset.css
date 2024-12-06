@@ -1,0 +1,69 @@
+.n-color-picker-panel{
+    width: 330px;
+  }
+  .lightsetting__wrap .arco-radio-button-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--base-padding-10);
+    padding-bottom: var(--base-padding-10);
+  }
+  #app .arco-collapse-item-content{
+    background-color: transparent;
+    padding: var(--base-padding-10) var(--base-padding-10) 0;
+  }
+  .settingitem__item .settingitem__inputNumber .arco-input-wrapper,
+  .settingitem__item .settingitem__selectposition .arco-input-wrapper,
+  .settingitem__item .settingitem__slider .arco-input-wrapper{
+    
+      background-color: #fff;
+  
+  }
+.lightsetting__wrap .arco-collapse-item-content{
+    background-color: transparent;
+    
+        
+    }
+.lightsetting__wrap .arco-collapse-item-header-title{
+        width: 100%;
+    }
+    #app  .arco-upload-list-item{
+        margin-top: 0;
+    }
+
+    
+    .settingitem__tooltip-hide{
+          display: none;
+  }
+.scenemodel__wrap .arco-collapse-item-header-title{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.scenemodel__delete:hover{
+  color: var(--base-color);
+}
+.arco-message-list.arco-message-list-top{
+  left: 0;
+}
+
+.sceneheader__textarea .arco-textarea{
+  text-align: center;
+}
+.arco-textarea{
+  font-weight: inherit;
+  color: inherit;
+}
+.arco-input{
+  color: inherit;
+  font-weight: inherit;
+}
+.camerasetting__imagecontainer .arco-image-img{
+  object-fit: contain;
+}
+#vc_drawer .arco-drawer-header .arco-drawer-title{
+  font-family: Microsoft YaHei;
+  font-weight: 900;
+  color: var(--base-font-color);
+}

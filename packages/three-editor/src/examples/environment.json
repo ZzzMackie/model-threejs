@@ -1,0 +1,28 @@
+{
+  "background": {
+    "type": "color",
+    "texture": "",
+    "path": "",
+    "backgroundRotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "backgroundIntensity": 1,
+    "backgroundBlurriness": 0
+  },
+  "name": "environment",
+  "category_id": 0,
+  "environment": {
+    "envMapIntensity": 1,
+    "environmentIntensity": 1,
+    "texture": "f39ae4d2cf404914bb2fa23044b68095",
+    "path": "/threeModel-editor/studio_small_08_2k.hdr",
+    "environmentRotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "category_name": "默认"
+}

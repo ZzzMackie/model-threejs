@@ -1,0 +1,245 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: var(--base-font-color);
+    background-color: #242424;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html body{
+    font-size: 14px;
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  @supports (-webkit-touch-callout: none) {
+    body {
+      min-height: -webkit-fill-available;
+    }
+  }
+  html{
+    overflow: hidden;
+    font-family: "Gotham-Book", "PingFang SC", "Microsoft YaHei",
+        "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: var(--base-font-color);
+  }
+  
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  div {
+    box-sizing: border-box;
+  }
+  
+  canvas {
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  
+  img {
+    max-width: 100%;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    -webkit-font-smooting: antialiased;
+  }
+  
+  body,
+  ul,
+  li,
+  p {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  li {
+    list-style: none;
+  }
+  
+  .svg-icon {
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  input,
+  a:focus,
+  input:focus,
+  p:focus,
+  div:focus,
+  span:focus,
+  i:focus,
+  svg:focus {
+    outline: none !important;
+  }
+  
+  input[type="search"]::-webkit-search-cancel-button{
+    display: none;
+  }
+  a {
+    font-weight: 500;
+    text-decoration: inherit;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+  
+  
+  .card {
+    padding: 2em;
+  }
+  body,
+  ul,
+  li,
+  p,
+  div{
+    box-sizing: border-box;
+    margin: 0;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+  
+  /* //滚动条 */
+  .c_scrollbar {
+      overflow-y: auto!important;
+  
+  
+      /* //火狐兼容 */
+      scrollbar-color: #e1e3e5 #fff;
+      /* 第一个方块颜色，第二个轨道颜色(用于更改火狐浏览器样式) */
+      scrollbar-width: none;
+      /* 火狐滚动条无法自定义宽度，只能通过此属性使滚动条宽度变细 */
+  }
+  
+  .c_scrollbar::-webkit-scrollbar {
+    display: none;
+    /*滚动条整体样式*/
+    width: 0px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 0px;
+  }
+  
+  .c_scrollbar::-webkit-scrollbar-thumb {
+    display: none;
+    /*滚动条里面小方块*/
+    border-radius: 0px;
+    background: #e1e3e5;
+  }
+  
+  .c_scrollbar::-webkit-scrollbar-track {
+    display: none;
+    /*滚动条里面轨道*/
+    border-radius: 0px;
+    background: #fff;
+  }
+  
+  /* //滚动条-无段都 */
+  .c_scrollbar__x-none {
+      overflow-x: scroll!important;
+      
+  
+      /* //火狐兼容 */
+      scrollbar-color: #e1e3e5 #fff;
+      /* 第一个方块颜色，第二个轨道颜色(用于更改火狐浏览器样式) */
+      scrollbar-width: none;
+      /* 火狐滚动条无法自定义宽度，只能通过此属性使滚动条宽度变细 */
+  }
+  
+  .c_scrollbar__x-none::-webkit-scrollbar {
+    display: none;
+    /*滚动条整体样式*/
+    width: 0px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 0px;
+  }
+  
+  .c_scrollbar__x-none::-webkit-scrollbar-thumb {
+    display: none;
+    /*滚动条里面小方块*/
+    border-radius: 0px;
+    background: #e1e3e5;
+  }
+  
+  .c_scrollbar__x-none::-webkit-scrollbar-track {
+    display: none;
+    /*滚动条里面轨道*/
+    border-radius: 0px;
+    background: #fff;
+  }
+  
+  
+  
+  
+  #app{
+    height: 100vh;
+    width: 100vw;
+  }
+  .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon[class^=el-icon-] {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
+  .progress-op{
+        visibility: hidden;
+}

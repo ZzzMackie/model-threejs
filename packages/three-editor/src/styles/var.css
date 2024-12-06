@@ -1,0 +1,21 @@
+:root {
+    --base-color: #ff7f00;
+    --base-dark-color: #212121;
+    /* 整站文字基础色号 */
+    --base-font-color: var(--base-dark-color);
+    --base-font-bold-color: #6b6b6b;
+    --base-font-size: 16px;
+    --base-font-min-size: 12px;
+    --base-font-middle-size: 14px;
+    --base-bg-color: #e8e8e9;
+    --base-margin-20: 20px;
+    --base-padding-10: 10px;
+    --border-radius-8: 8px;
+    --border-radius-4: 4px;
+    --base-gray-color: #f8f8f8;
+    --base-gray-dark1: #cec5c5;
+    --base-gray-dark2: #666;
+    --base-margin-10: 10px;
+    --max-content-height: calc(100vh - (var(--base-margin-20)));
+    --base-header-height: 54px;
+  }

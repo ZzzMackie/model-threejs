@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebGL2 Demo</title>
+</head>
+<body>
+  <canvas id="webglCanvas" width="800" height="600"></canvas>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./node_modules/three/build/three.module.min.js",
+        "@model/three-render-v2": "./node_modules/@model/three-render-v2/dist/three-render-v2.umd.min.js"
+      }
+    }
+    </script>
+  <script type="module">
+    import { Mesh, PerspectiveCamera, MeshBasicMaterial, BoxGeometry, Scene, WebGLRenderer } from '@fusen/threejs';
+    const canvas = document.getElementById('webglCanvas');
+    const gl = canvas.getContext('webgl2');
+    if (!gl) {
+      console.error('WebGL2 not supported');
+    } else {
+      // Example: Clear canvas with a color
+    //   gl.clearColor(0.2, 0.4, 0.6, 1.0);
+    //   gl.clear(gl.COLOR_BUFFER_BIT);
+    }
+    async function main() {
+        // 创建canvas元素
+        const width = window.innerWidth,
+            height = window.innerHeight;
+        const canvas = document.getElementById('webglCanvas');
+        // 创建渲染器
+        const renderer = new WebGLRenderer({ canvas,});
+        renderer.setSize(width, height);
+        // 创建场景
+        const scene = new Scene();
+        // 创建相机
+        const camera = new PerspectiveCamera(75, width / height, 0.1, 1000);
+        camera.position.z = 5;
+        // 创建模型
+        const geometry = new BoxGeometry(1, 1, 1);
+        const material = new MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new Mesh(geometry, material);
+        scene.add(cube);
+        // 渲染
+        renderer.render(scene, camera);
+        // const base64 = renderer.domElement.toDataURL('image/png', 1.0);
+        // const base64Image = base64.split(';base64,').pop();
+        // // 将 base64 转成 二进制数据
+        // const bufferData = Buffer.from(base64Image, 'base64');
+        // 保存图片
+        //   canvas.toBuffer((err, buf) => {
+        //     if (err) throw err;
+        //     fs.writeFileSync('output.png', bufferData);
+        //   });
+
+        // fs.writeFileSync('output.png', bufferData);
+    }
+    main()
+  </script>
+</body>
+</html>
